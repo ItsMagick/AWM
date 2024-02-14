@@ -1,0 +1,9 @@
+%! Author = Charon
+%! Date = 14/02/2024
+\begin{lstlisting}[language=term, caption= Deaktivieren des Wireless LAN Interface,label=disable-wlan]
+    $ sudo vim /boot/config.txt
+    ....
+    # Disable wireless services
+    dtoverlay=pi3-disable-wifi
+    dtoverlay=pi3-disable-bt
+\end{lstlisting}
