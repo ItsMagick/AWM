@@ -2,3 +2,21 @@
 %! Date = 13.02.24
 
 \section{Automatische Security Updates}\label{sec:automatische-security-updates}
+Aufgrund der sperrligen Besetzung der Technikabteilung der ~\gls{sv}, sowie der dauerhaften Aufgabenstellung alle ~\gls{it}-Systeme instand zu halten ist es ratsam automatische
+Sicherheitsupdates auf Geräten zu konfigurieren.
+Für solche Zwecke gibt es bereits vorgefertigte Programme, die einem Administrator dabei helfen. \\
+Die in diesem Projekt verwendeten Technologien beschränken sich hierbei auf die Folgenden:
+\begin{itemize}
+    \item unattended-upgrades
+    \item apt-listchanges
+    \item apticron
+\end{itemize}
+
+\input{listings/install-auto-update}
+\linebreak
+Zudem wurde sich bei der Konfiguration der automatischen Updates mithilfe einer bereits angefertigten Konfigurationsdatei beholfen.~\footcite{auto-update-config}
+Diese Konfiguration muss zunächst in das Verzeichnis \textbf{/etc/apt/apt.conf.d/} kopiert werden.
+Um zu verifizieren, ob die automatischen Updates funktionieren sollte der folgende Command eingegeben werden:
+\input{listings/verify-autoupdate}
+\linebreak
+Zum Nachverfolgen der automatisierten Updates werden die updates in \textbf{/car/log/unattended-upgrades/unattended-upgrades.log} geloggt.
