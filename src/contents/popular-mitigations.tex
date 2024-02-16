@@ -4,7 +4,27 @@
 \section{Verbreitete Schwachstellen und ihre Mitigationen}\label{sec:bekannte-schwachstellen-und-ihre-mitegationen}
 
 \subsection{Brute Force Attacken auf SSH credentials}\label{subsec:fail2ban}
-hier fail2ban beschreiben
-\subsection{ARP cache poisoning}\label{subsec:arp-chache-poisoning}
-Hier auf IP-MAC address associations eingehen(Fixed arp table)
-\subsection{XSS maybe}
+Zur weiteren Verstärkung der Credentials für den ~\gls{ssh} Nutzer \textit{svuser} und, um einer brute-force attacke vorzubeugen,
+wird in dieser Sektion die Installation und Einrichtung von fail2ban beschrieben.
+fail2ban ist eine open source Software, welche Logdateien scant und anhand der darin enthaltenen ~\gls{ip}-Adresse diese für einen konfigurierbaren
+Zeitraum bannt.~\footcite{fail2ban} \\
+Installiert werden kann diese Software entweder über das offizielle Github Repository oder für auf Debian basierenden Systemen (oder ähnliche) über den im
+Betriebssystem verfügbaren paket manager.
+\input{listings/install-fail2ban}
+
+Die Installation beinhaltet das Einrichten eines Hintergrundservice, welcher jedoch initial nicht aktiv ist.
+In der bereits vorkonfigurierten Datei \textbf{/etc/fail2ban/jail.conf} existieren Konfigurationen, wie
+eine Maximalanzahl für Versuche zum Login über ~\gls{ssh} oder Einstellungen für Zahlreiche andere Webframeworks.
+Für bessere Wartbarkeit der Software wird hier eine jail.local Datei angelegt, da bei jedem Update von fail2ban die jail.conf automatisch mit einer
+neueren Version überschrieben wird.
+\input{listings/jail.local}
+\blankline
+In der Konfigurationsdatei gibt es einen Eintrag mit dem Namen \textbf{bantime}.
+Für viele brute force Attacken spielt Zeit eine große Rolle.
+Um es einem Angreifer in diesem Szenario \"den Spaß zu verderben\" wird mit dem Setzen der bantime, nach mehrmaligem Fehlversuch, auf 10 Minuten mit \textbf{bantime=10m}
+bereits viel geholfen.
+Weitere Konfigurationen können in folgender Form in der \textbf{jail.local} Datei vorgenommen werden.\\
+\input{listings/fail2ban-ssh}
+Mithilfe dieser Konfiguration ist es nun nicht mehr möglich einen brute force Angriff auf den \gls{ssh}-Port durchzuführen.
+Zum Inkrafttreten der Änderungen und zur Aktivierung des ~\gls{ssh}-jails muss der fail2ban Service gestartet werden.
+\input{listings/start-fail2ban}

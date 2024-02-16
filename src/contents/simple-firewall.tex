@@ -11,8 +11,6 @@ Die Firewall besitzt eine Liste von ad-hoc Kommandos, deren sich der Einfachheit
 Die hier verwendeten Kommandos Konfigurieren die Firewall nach dem Whitelisting Prinzip.
 Zuerst werden mit \textbf{ufw default deny incoming} alle Verbindungen, welche von außen auf den Raspberry zugreifen wollen, blockiert.
 Danach werden mit \textbf{ufw default allow outgoing} alle Verbindungen, die der Raspberry Pi nach außen, ~\gls{bspw} auf das internet mit ping oder Browser, erlaubt.
-Als Nächstes werden die ~\gls{ssh} Verbindungsversuche mit ~\textbf{ufw limit ssh} reguliert.
-Mit der Konfiguration wird es nur ermöglicht sechs Verbindungsversuche innerhalb von 30 Sekunden aufzubauen.
 Die weiteren Konfigurationen mit dem Schlüsselwort \textbf{allow} ermöglichen es Verbindungen, die von außen auf den Raspberry Pi zukommen,
 zu erlauben.
 Die erlaubten Verbindungen sind jedoch nur auf ~\gls{http} (~\gls{tcp} Port 80), ~\gls{https} (~\gls{tcp} Port 443) und ~\gls{ssh} (~\gls{tcp} Port 22) beschränkt. \\

@@ -1,0 +1,13 @@
+%! Author = chaorn
+%! Date = 16.02.24
+
+\begin{lstlisting}[language=term,caption=Konfiguration des ssh jails von fail2ban,label=fail2ban-ssh]
+    $ sudo nano /etc/fail2ban/jail.local
+        [sshd]
+        enabled = true
+        port = ssh
+        filter = sshd
+        logpath = /var/log/auth.log
+        maxretry = 3
+        bantime = 10m
+\end{lstlisting}
