@@ -8,20 +8,19 @@ Fail2ban~\cite{fail2ban} ist eine Open-Source-Software, welche Logdateien scant 
 Zeitraum bannt. \\
 Installiert werden kann diese Software entweder über das offizielle Github Repository oder für auf Debian basierten Systemen (oder ähnliche) über den im
 Betriebssystem verfügbaren Paket-Manager.
-\input{listings/install-fail2ban}
-
+\input{listings/install-fail2ban}\\
 Die Installation beinhaltet das Einrichten eines Hintergrundservice, welcher jedoch initial nicht aktiv ist.
 In der bereits vorkonfigurierten Datei \texttt{/etc/fail2ban/jail.conf} existieren Konfigurationen, wie
 eine Maximalanzahl für Versuche zum Login über~\gls{ssh} oder Einstellungen für zahlreiche andere Webframeworks.
 Für bessere Wartbarkeit der Software wird hier eine \texttt{jail.local} Datei angelegt, da bei jedem Update von fail2ban die Konfigurationsdatei automatisch mit einer
 neueren Version überschrieben wird.
 \input{listings/jail.local}
-\blankline
 In der Konfigurationsdatei gibt es einen Eintrag mit dem Namen \texttt{bantime}.
 Für viele Brute-Force-Attacken spielt Zeit eine große Rolle.
-Um einem Angreifer in diesem Szenario \"den Spaß zu verderben\" wird mit dem Setzen der bantime, nach mehrmaligem Fehlversuch, auf 10 Minuten mit \texttt{bantime=10m}
+Um einem Angreifer in diesem Szenario \textit{"den Spaß zu verderben"} wird mit dem Setzen der bantime, nach mehrmaligem Fehlversuch, auf 10 Minuten mit \texttt{bantime=10m}
 bereits viel geholfen.
-Weitere Konfigurationen können in folgender Form in der \textbf{jail.local} Datei vorgenommen werden.\\
+Weitere Konfigurationen können in folgender Form (siehe Listing~\ref{lst:fail2ban-ssh}) in der \textbf{jail.local} Datei vorgenommen werden.
+\pagebreak
 \input{listings/fail2ban-ssh}
 Mithilfe dieser Konfiguration ist es nun nicht mehr möglich einen Brute-Force-Angriff auf den \gls{ssh}-Port durchzuführen.
 Zum Inkrafttreten der Änderungen und zur Aktivierung des~\gls{ssh}-jails muss der fail2ban Service gestartet werden.

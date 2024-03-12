@@ -6,8 +6,8 @@ Auf einem Raspberry Pi3 ist keine Firewall vorinstalliert.
 Somit muss zuerst eine Firewall installiert werden.
 Der simplizität und der lesbaren Dokumentation geschuldet wurde sich hierbei für die~\gls{ufw} entschieden.
 \input{listings/install-firewall}
-Die Firewall besitzt eine Liste von Ad-Hoc-Kommandos~\cite{ufw-doc}, deren sich bedient wurde. \\
-\input{listings/ad-hoc-config}
+Die Firewall besitzt eine Liste von Ad-Hoc-Kommandos~\cite{ufw-doc}, deren sich bedient wurde.
+\input{listings/ad-hoc-config}\\
 Die hier verwendeten Kommandos Konfigurieren die Firewall nach dem White-Listing Prinzip.
 Zuerst werden mit \texttt{ufw default deny incoming} alle Verbindungen, welche von außen auf den Raspberry zugreifen wollen, blockiert.
 Danach werden mit \texttt{ufw default allow outgoing} alle Verbindungen, die der Raspberry Pi nach außen,~\gls{bspw} auf

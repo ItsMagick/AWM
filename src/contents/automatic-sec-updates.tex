@@ -12,10 +12,8 @@ Die in diesem Projekt verwendeten Technologien beschränken sich hierbei auf die
     \item apticron
 \end{itemize}
 \input{listings/install-auto-update}
-\linebreak
 Zudem wurde sich bei der Konfiguration der automatischen Updates mithilfe einer bereits angefertigten Konfigurationsdatei~\cite{auto-update-config} beholfen.
 Diese Konfiguration muss zunächst in das Verzeichnis \texttt{/etc/apt/apt.conf.d/} kopiert werden.
 Um zu verifizieren, ob die automatischen Updates funktionieren sollte der folgende Command eingegeben werden:
-\input{listings/verify-autoupdate}
-\linebreak
+\input{listings/verify-autoupdate}\\
 Zum Nachverfolgen der automatisierten Updates werden die Updates in \texttt{/car/log/unattended-upgrades/unattended-upgrades.log} geloggt.
