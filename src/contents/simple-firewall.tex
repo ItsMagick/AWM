@@ -4,15 +4,16 @@
 \section{Simple Firewall Konfiguration mit UFW}\label{sec:simple-firewall-konfiguration}
 Auf einem Raspberry Pi3 ist keine Firewall vorinstalliert.
 Somit muss zuerst eine Firewall installiert werden.
-Der simplizität und der lesbaren Dokumentation geschuldet wurde sich hierbei für die ~\gls{ufw} entschieden.
+Der simplizität und der lesbaren Dokumentation geschuldet wurde sich hierbei für die~\gls{ufw} entschieden.
 \input{listings/install-firewall}
-Die Firewall besitzt eine Liste von ad-hoc Kommandos, deren sich der Einfachheit halber bedient wurde.~\footcite{ufw-doc} \\
+Die Firewall besitzt eine Liste von Ad-Hoc-Kommandos~\cite{ufw-doc}, deren sich bedient wurde. \\
 \input{listings/ad-hoc-config}
-Die hier verwendeten Kommandos Konfigurieren die Firewall nach dem Whitelisting Prinzip.
-Zuerst werden mit \textbf{ufw default deny incoming} alle Verbindungen, welche von außen auf den Raspberry zugreifen wollen, blockiert.
-Danach werden mit \textbf{ufw default allow outgoing} alle Verbindungen, die der Raspberry Pi nach außen, ~\gls{bspw} auf das internet mit ping oder Browser, erlaubt.
-Die weiteren Konfigurationen mit dem Schlüsselwort \textbf{allow} ermöglichen es Verbindungen, die von außen auf den Raspberry Pi zukommen,
+Die hier verwendeten Kommandos Konfigurieren die Firewall nach dem White-Listing Prinzip.
+Zuerst werden mit \texttt{ufw default deny incoming} alle Verbindungen, welche von außen auf den Raspberry zugreifen wollen, blockiert.
+Danach werden mit \texttt{ufw default allow outgoing} alle Verbindungen, die der Raspberry Pi nach außen,~\gls{bspw} auf
+das Internet mit dem Kommando \texttt{ping} oder einem Browser, erlaubt.
+Die weiteren Konfigurationen mit dem Schlüsselwort \texttt{allow} ermöglichen es Verbindungen, die von außen auf den Raspberry Pi zukommen,
 zu erlauben.
-Die erlaubten Verbindungen sind jedoch nur auf ~\gls{http} (~\gls{tcp} Port 80), ~\gls{https} (~\gls{tcp} Port 443) und ~\gls{ssh} (~\gls{tcp} Port 22) beschränkt. \\
-Das Kommando \textbf{ufw logging on} bezweckt, dass die von der Firewall blockierten Verbindungen unter \textbf{/var/log/ufw.log} aufgezeichnet werden. \\
-Zum schlussendlichen Aktivieren und Anwenden der Regeln der Firewall wird diese jetzt mit dem \textbf{enable} Schlüsselwort aktiviert.
+Die erlaubten Verbindungen sind jedoch nur auf~\gls{http} (\gls{tcp} Port 80),~\gls{https} (\gls{tcp} Port 443) und \gls{ssh} (\gls{tcp} Port 22) beschränkt. \\
+Das Kommando \texttt{ufw logging on} bezweckt, dass die von der Firewall blockierten Verbindungen unter \texttt{/var/log/ufw.log} aufgezeichnet werden. \\
+Zum schlussendlichen Aktivieren und Anwenden der Regeln der Firewall wird diese jetzt mit dem \texttt{enable} Schlüsselwort aktiviert.
